@@ -1,3 +1,28 @@
+const questions = [
+  {
+    title: "What is the question 1?",
+    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+  },
+  {
+    title: "What is the question 2?",
+    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+  },
+  {
+    title: "What is the question 3?",
+    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+  },
+  {
+    title: "What is the question 4?",
+    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+  },
+  {
+    title: "What is the question 5?",
+    options: ["Answer 1", "Answer 2", "Answer 3", "Answer 4"],
+  },
+];
+
+const currentQuestionIndex = 0;
+
 // will render the question container for a given question
 const renderQuestion = (question) => {
   const questionContainer = document.createElement("div");
@@ -5,22 +30,22 @@ const renderQuestion = (question) => {
 
   const questionDiv = document.createElement("div");
   questionDiv.setAttribute("class", "question");
-  questionDiv.textContent = "What is the question?";
+  questionDiv.textContent = question.title;
 
   const ul = document.createElement("ul");
   ul.setAttribute("class", "answers");
 
   const li1 = document.createElement("li");
-  li1.textContent = "Answer 1";
+  li1.textContent = question.options[0];
 
   const li2 = document.createElement("li");
-  li2.textContent = "Answer 2";
+  li2.textContent = question.options[1];
 
   const li3 = document.createElement("li");
-  li3.textContent = "Answer 3";
+  li3.textContent = question.options[2];
 
   const li4 = document.createElement("li");
-  li4.textContent = "Answer 4";
+  li4.textContent = question.options[3];
 
   ul.append(li1, li2, li3, li4);
 
@@ -38,7 +63,7 @@ const renderQuestion = (question) => {
 const startQuiz = () => {
   console.log("button clicked");
 
-  renderQuestion();
+  renderQuestion(questions[currentQuestionIndex]);
 };
 
 // add event listener for click event on start quiz button
