@@ -29,10 +29,10 @@ const renderNextQuestion = (event) => {
   if (target.matches("li")) {
     currentQuestionIndex++;
 
-    if (currentQuestionIndex < questions.length) {
-      const questionContainer = document.getElementById("question-container");
-      questionContainer.remove();
+    const questionContainer = document.getElementById("question-container");
+    questionContainer.remove();
 
+    if (currentQuestionIndex < questions.length) {
       const nextQuestion = questions[currentQuestionIndex];
 
       renderQuestion(nextQuestion);
