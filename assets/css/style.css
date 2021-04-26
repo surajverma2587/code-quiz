@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.timer {
+  font-size: 1.5rem;
+}
