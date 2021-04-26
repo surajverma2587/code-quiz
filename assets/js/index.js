@@ -23,6 +23,8 @@ const questions = [
 
 let currentQuestionIndex = 0;
 
+const main = document.getElementById("quiz-app");
+
 const renderNextQuestion = (event) => {
   const target = event.target;
 
@@ -37,7 +39,7 @@ const renderNextQuestion = (event) => {
 
       renderQuestion(nextQuestion);
     } else {
-      console.log("render form here");
+      renderForm();
     }
   }
 };
@@ -71,7 +73,6 @@ const renderQuestion = (question) => {
 
   questionContainer.append(questionDiv, ul);
 
-  const main = document.getElementById("quiz-app");
   const startQuizContainer = document.getElementById("start-quiz-container");
 
   if (startQuizContainer) {
@@ -83,10 +84,39 @@ const renderQuestion = (question) => {
   ul.addEventListener("click", renderNextQuestion);
 };
 
+// will render the form on quiz completion
+const renderForm = () => {
+  const formContainer = document.createElement("div");
+  formContainer.setAttribute("class", "form-container");
+
+  const h2 = document.createElement("h2");
+  h2.textContent = "All Done!!";
+
+  const scoreDiv = document.createElement("div");
+  scoreDiv.setAttribute("class", "score");
+  scoreDiv.textContent = "Your score is 25";
+
+  const form = document.createElement("form");
+  form.setAttribute("class", "score-form");
+
+  const label = document.createElement("label");
+  label.textContent = "Enter Initials: ";
+
+  const input = document.createElement("input");
+  input.setAttribute("type", "text");
+
+  const button = document.createElement("button");
+  button.setAttribute("class", "btn");
+  button.textContent = "Submit";
+
+  form.append(label, input, button);
+  formContainer.append(h2, scoreDiv, form);
+
+  main.append(formContainer);
+};
+
 // function called when you click on start quiz button
 const startQuiz = () => {
-  console.log("button clicked");
-
   renderQuestion(questions[currentQuestionIndex]);
 };
 
