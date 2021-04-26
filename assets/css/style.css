@@ -17,3 +17,25 @@ body {
 .timer {
   font-size: 1.5rem;
 }
+
+.start-quiz-container {
+  padding: 0.5rem;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.info {
+  padding: 2rem;
+}
+
+.btn {
+  padding: 0.8rem;
+  background-color: coral;
+  border: none;
+  border-radius: 0.2rem;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
