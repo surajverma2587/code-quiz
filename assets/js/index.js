@@ -151,16 +151,6 @@ const renderGameOver = () => {
   main.append(div);
 };
 
-const getFromLocalStorage = () => {
-  const localStorageData = JSON.parse(localStorage.getItem("highscores"));
-
-  if (localStorageData) {
-    return localStorageData;
-  } else {
-    return [];
-  }
-};
-
 const onSubmit = (event) => {
   event.preventDefault();
 
