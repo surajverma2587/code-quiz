@@ -26,7 +26,7 @@ const questions = [
   },
 ];
 
-let timerValue = 2;
+let timerValue = questions.length * 10;
 
 let currentQuestionIndex = 0;
 
@@ -122,6 +122,7 @@ const renderForm = () => {
 
   const input = document.createElement("input");
   input.setAttribute("type", "text");
+  input.setAttribute("id", "initials-input");
 
   const button = document.createElement("button");
   button.setAttribute("class", "btn");
@@ -131,6 +132,8 @@ const renderForm = () => {
   formContainer.append(h2, scoreDiv, form);
 
   main.append(formContainer);
+
+  form.addEventListener("submit", onSubmit);
 };
 
 const renderGameOver = () => {
@@ -146,6 +149,35 @@ const renderGameOver = () => {
   div.append(h2);
 
   main.append(div);
+};
+
+const getFromLocalStorage = () => {
+  const localStorageData = JSON.parse(localStorage.getItem("highscores"));
+
+  if (localStorageData) {
+    return localStorageData;
+  } else {
+    return [];
+  }
+};
+
+const onSubmit = (event) => {
+  event.preventDefault();
+
+  const initialsInput = document.getElementById("initials-input");
+
+  const initials = initialsInput.value;
+
+  const scoreObject = {
+    user: initials,
+    score: timerValue,
+  };
+
+  const highscores = getFromLocalStorage();
+
+  highscores.push(scoreObject);
+
+  localStorage.setItem("highscores", JSON.stringify(highscores));
 };
 
 const startTimer = () => {
@@ -176,6 +208,7 @@ const startTimer = () => {
 // function called when you click on start quiz button
 const startQuiz = () => {
   startTimer();
+
   renderQuestion(questions[currentQuestionIndex]);
 };
 
