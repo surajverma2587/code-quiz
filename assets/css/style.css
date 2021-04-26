@@ -39,3 +39,33 @@ body {
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.question-container {
+  padding: 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.question {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.answers {
+  list-style: none;
+}
+
+.answers li {
+  padding: 1rem;
+  width: 50%;
+  background-color: cadetblue;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.answers li:hover {
+  background-color: rgba(95, 158, 160, 0.705);
+  cursor: pointer;
+}
